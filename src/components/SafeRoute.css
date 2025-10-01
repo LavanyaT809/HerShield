@@ -1,0 +1,101 @@
+.saferoute-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://storage.googleapis.com/support-forums-api/attachment/message-133252936-14021676145025816477.PNG');
+  background-size: cover;
+  background-position: center;
+}
+
+.saferoute-box {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 400px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  position: relative;
+  z-index: 2;
+}
+
+.saferoute-box h2 {
+  color: white;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  color: #ccc;
+  margin-bottom: 5px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #555;
+  background-color: #333;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.input-field input {
+  background: none;
+  border: none;
+  color: white;
+  flex-grow: 1;
+}
+
+.input-field input:focus {
+  outline: none;
+}
+
+.input-field .icon {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.suggest-button {
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  background-color: #1abc9c;
+  color: white;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.suggest-button:hover {
+  background-color: #16a085;
+}
+
+.sos-button {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: #e74c3c;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}

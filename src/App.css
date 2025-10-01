@@ -1,42 +1,136 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* General App Styles */
+.App {
   text-align: center;
+  background-color: #1a1a2e;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.home-hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://btattorneys.com/wp-content/uploads/2024/03/sexual-harassment-examples.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+/* Header and Navigation */
+.App-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 15px 50px;
+  background: rgba(26, 26, 46, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  font-size: 1.8em;
+  font-weight: bold;
+  color: white;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+nav li {
+  margin: 0 20px;
 }
 
-.card {
-  padding: 2em;
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-.read-the-docs {
-  color: #888;
+nav a:hover {
+  color: #ff8c00;
+}
+
+/* Main Content Area */
+.main-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 120px 50px 50px;
+  color: white;
+  width: 100%;
+}
+
+.text-content {
+  max-width: 500px;
+  text-align: left;
+}
+
+.text-content h1 {
+  font-size: 3.5em;
+  margin-bottom: 20px;
+}
+
+.text-content p {
+  font-size: 1.5em;
+  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.text-content button {
+  background-color: #ff8c00;
+  color: white;
+  border: none;
+  padding: 15px 35px;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+}
+
+.text-content button:hover {
+  background-color: #ffa500;
+  transform: translateY(-2px);
+}
+
+.image-content img {
+  max-width: 400px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Ensure subsequent sections have the solid background */
+.features-section,
+.educate-section {
+  background-color: #1a1a2e;
+  padding: 50px;
 }

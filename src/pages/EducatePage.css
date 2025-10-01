@@ -1,0 +1,59 @@
+.educate-page {
+    padding-top: 80px;
+    color: white;
+    background-color: #1a1a2e;
+    min-height: 100vh;
+  }
+  
+  .educate-hero {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #2c2c54;
+  }
+  
+  .educate-hero h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+  }
+  
+  .educate-hero p {
+    font-size: 1.2em;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .educate-content {
+    padding: 50px 20px;
+  }
+  
+  .educate-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .educate-card {
+    background-color: #2c2c54;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .educate-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  }
+  
+  .educate-card h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+  }
+  
+  .educate-card p {
+    font-size: 1em;
+  }
+  
