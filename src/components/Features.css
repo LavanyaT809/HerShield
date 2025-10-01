@@ -1,5 +1,16 @@
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .features-section {
-  background-color: #1a1a2e;
   padding: 50px 0;
   color: white;
   text-align: center;
@@ -10,7 +21,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 50px;
-  padding: 0 50px;
+  padding: 0 20px; /* Reduced padding */
 }
 
 .features-header p {
@@ -42,7 +53,7 @@
 
 .features-carousel {
   position: relative;
-  width: 700px; /* 3 cards * 220px + 2 gaps * 20px */
+  width: 90%; /* Use percentage for responsiveness */
   margin: 0 auto;
   overflow: hidden;
 }
@@ -54,18 +65,19 @@
 }
 
 .feature-card {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(15, 10, 20, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 15px;
   padding: 15px;
-  width: 220px;
-  height: 220px;
+  min-width: 200px;
+  height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(10px);
   text-align: center;
   transition: transform 0.3s ease;
 }

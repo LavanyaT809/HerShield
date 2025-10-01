@@ -1,0 +1,72 @@
+.analytics-dashboard {
+  background-color: #0D0A13;
+  color: white;
+  padding: 50px;
+  min-height: 100vh;
+}
+
+.analytics-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.analytics-header h1 {
+  font-size: 2.5em;
+}
+
+.go-back-button {
+    background-color: #9370DB;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(147, 112, 219, 0.4);
+}
+
+.glass-container {
+  background: rgba(15, 10, 20, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.chart-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.card h3 {
+  font-size: 1em;
+  color: #aaa;
+}
+
+.card .value {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+.card .change {
+  font-size: 0.9em;
+}
+
+.green {
+    color: lightgreen;
+}
+
+.red {
+    color: red;
+}

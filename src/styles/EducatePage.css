@@ -1,0 +1,163 @@
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.educate-page-container {
+  padding: 120px 50px 50px;
+  color: white;
+  background: linear-gradient(-45deg, #0D0A13, #17111F, #0D0A13, #17111F);
+  background-size: 400% 400%;
+  animation: gradient-animation 15s ease infinite;
+  min-height: 100vh;
+}
+
+.educate-page-container h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.purple-title {
+  color: #9370DB;
+}
+
+.educate-content {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.left-column {
+  flex: 2;
+  min-width: 300px;
+}
+
+.right-column {
+  flex: 1;
+  min-width: 300px;
+}
+
+.info-card {
+  background: rgba(15, 10, 20, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  text-align: left;
+}
+
+.info-card h2 {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #9370DB;
+  margin-bottom: 20px;
+}
+
+.rights-list .right-item,
+.helplines-list .helpline-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 20px 0;
+}
+
+.rights-list .right-item:last-child,
+.helplines-list .helpline-item:last-child {
+  border-bottom: none;
+}
+
+.right-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.right-header h3 {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: white;
+}
+
+.right-content {
+  padding-top: 15px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.right-subtitle {
+  color: white;
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-bottom: 5px;
+}
+
+.self-defense-videos {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.video-thumbnail {
+  flex: 1;
+  min-width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-thumbnail:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(147, 112, 219, 0.3);
+}
+
+.play-icon {
+  font-size: 4em;
+  color: rgba(255, 255, 255, 0.8);
+  transition: color 0.3s ease;
+}
+
+.video-thumbnail:hover .play-icon {
+  color: white;
+}
+
+.emergency-helplines h2 {
+  display: flex;
+  align-items: center;
+}
+
+.emergency-helplines .icon {
+  margin-right: 15px;
+  font-size: 1.5em;
+}
+
+.helpline-item h3 {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: white;
+}
+
+.helpline-item p {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #9370DB;
+  margin-top: 5px;
+}

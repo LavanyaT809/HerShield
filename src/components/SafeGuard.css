@@ -1,9 +1,23 @@
 .safeguard-container {
-  background-color: #1a1a2e;
-  color: white;
   padding: 40px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
+  background: linear-gradient(-45deg, #0D0A13, #17111F, #0D0A13, #17111F);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  color: white;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .main-title {
@@ -32,10 +46,10 @@
 }
 
 .card {
-  background-color: #2c2c54;
+  background: rgba(15, 10, 20, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 15px;
   padding: 25px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .camera-feed {
@@ -63,7 +77,7 @@
 }
 
 .video-placeholder {
-  background-color: #1e1e3f;
+  background: rgba(15, 10, 20, 0.2);
   border: 2px dashed #8a2be2;
   border-radius: 10px;
   flex-grow: 1;
@@ -141,7 +155,7 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-left: 15px; /* Added for spacing */
+  margin-left: 15px;
 }
 
 .stop-camera-btn:hover, .request-camera-btn:hover {

@@ -47,7 +47,7 @@ const Features = () => {
   }, [currentIndex, originalFeatures.length]);
 
   return (
-    <div id="features" className="features-section">
+    <div id="features" className="features-section educate-page-container">
       <div className="features-header">
         <p>Our Features</p>
         <h2>Worlds Best App for "Women's Safety"</h2>
@@ -57,12 +57,12 @@ const Features = () => {
         <div
           className="features-container"
           style={{
-            transform: `translateX(-${currentIndex * 240}px)`,
+            transform: `translateX(-${currentIndex * 220}px)`,
             transition: 'transform 0.5s ease-in-out',
           }}
         >
           {features.map((feature, index) => (
-            <div className="feature-card" key={index}>
+            <div className="feature-card info-card" key={index}>
               <div className="feature-icon" style={{ color: feature.color }}>
                 {feature.icon}
               </div>

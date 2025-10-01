@@ -48,9 +48,11 @@ nav {
 }
 
 .logo {
+  display: flex;
+  align-items: center;
   font-size: 1.8em;
   font-weight: bold;
-  color: white;
+  color: #9370DB;
 }
 
 nav ul {
@@ -67,13 +69,19 @@ nav li {
 nav a {
   color: white;
   text-decoration: none;
-  font-size: 1.1em;
-  font-weight: 500;
+  font-size: 1.2em;
+  font-weight: 700;
   transition: color 0.3s ease;
+  padding-bottom: 5px;
 }
 
 nav a:hover {
-  color: #ff8c00;
+  color: #9370DB;
+}
+
+nav a.active {
+  color: #9370DB;
+  border-bottom: 2px solid #9370DB;
 }
 
 /* Main Content Area */
@@ -105,7 +113,7 @@ nav a:hover {
 }
 
 .text-content button {
-  background-color: #ff8c00;
+  background-color: #9370DB;
   color: white;
   border: none;
   padding: 15px 35px;
@@ -114,11 +122,11 @@ nav a:hover {
   border-radius: 50px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+  box-shadow: 0 4px 15px rgba(147, 112, 219, 0.4);
 }
 
 .text-content button:hover {
-  background-color: #ffa500;
+  background-color: #a384e3;
   transform: translateY(-2px);
 }
 

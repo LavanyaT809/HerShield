@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import './SafeGuard.css';
 
 const SafeGuard = () => {
@@ -7,7 +7,7 @@ const SafeGuard = () => {
   const [stream, setStream] = useState(null);
   const videoRef = useRef(null);
 
-  const getCameraAccess = () => {
+  const getCameraAccess = useCallback(() => {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       navigator.mediaDevices.getUserMedia({ video: true })
         .then((stream) => {
@@ -22,10 +22,9 @@ const SafeGuard = () => {
           console.error("Camera access error:", error);
         });
     }
-  }
+  }, []);
 
   useEffect(() => {
-    // Request location permission
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -38,15 +37,16 @@ const SafeGuard = () => {
       );
     }
 
-    getCameraAccess();
+    if (!stream) {
+      getCameraAccess();
+    }
 
-    // Clean up stream on component unmount
     return () => {
       if (stream) {
         stream.getTracks().forEach(track => track.stop());
       }
     };
-  }, []);
+  }, [stream, getCameraAccess]);
 
   const handleStopCamera = () => {
     if (stream) {
@@ -64,7 +64,7 @@ const SafeGuard = () => {
       <h1 className="main-title">SafeGuard Live Monitoring</h1>
       <div className="monitoring-layout">
         <div className="left-column">
-          <div className="card camera-feed">
+          <div className="card camera-feed glass-container">
             <div className="camera-feed-header">
               <h2>Active Camera Feed</h2>
               {stream && <button onClick={handleStopCamera} className="stop-camera-btn">Stop Camera</button>}
@@ -82,18 +82,18 @@ const SafeGuard = () => {
           </div>
         </div>
         <div className="right-column">
-          <div className="card system-status">
+          <div className="card system-status glass-container">
             <h2>System Status</h2>
             <div className="status-indicator"></div>
             <p className="status-text">Monitoring: Safe</p>
             <p className="location-text">Location: {locationStatus}</p>
           </div>
-          <div className="card immediate-action">
+          <div className="card immediate-action glass-container">
             <h2>Immediate Action</h2>
             <button className="sos-trigger">MANUAL SOS TRIGGER</button>
             <p>Activates immediate alert to police with location and live frame capture.</p>
           </div>
-          <div className="card ai-settings">
+          <div className="card ai-settings glass-container">
             <h2>AI Monitor Settings</h2>
             <div className="setting">
               <span>Enable AI Detection</span>
