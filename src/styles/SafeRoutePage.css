@@ -1,0 +1,108 @@
+.safe-route-page-container {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding-top: 5rem;
+}
+
+.route-suggestion-card {
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 2rem;
+  border-radius: 15px;
+  color: white;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+}
+
+.route-suggestion-card h1 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.route-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.input-group label {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.input-group input {
+  background-color: #333;
+  border: 1px solid #555;
+  color: white;
+  padding: 0.75rem;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.route-controls button {
+  background-color: #00d1b2;
+  color: #fff;
+  border: none;
+  padding: 1rem;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.route-controls button:hover {
+  background-color: #00a38d;
+}
+
+.map-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+.legend {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+.legend .item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.legend .dot {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.street-view-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.street-view-btn:hover {
+  background-color: #0056b3;
+}

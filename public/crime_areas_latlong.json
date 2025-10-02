@@ -1,0 +1,66 @@
+[
+  {
+    "station": "Kothrud",
+    "risk": "high",
+    "cases": 120,
+    "lat": 18.5074,
+    "lon": 73.8095,
+    "description": "High (avoided) due to a history of unreported harassment/stalking in less-crowded internal roads, combined with general property crime. Street lighting is often inconsistent after 10 PM."
+  },
+  {
+    "station": "Swargate",
+    "risk": "high",
+    "cases": 150,
+    "lat": 18.5002,
+    "lon": 73.8634,
+    "description": "High (avoided) due to being a major transport hub, which leads to dense crowds, making it a hotspot for pickpocketing/snatching and non-consensual contact. Risk remains high even during day due to volume of people."
+  },
+  {
+    "station": "Shivaji Nagar",
+    "risk": "medium",
+    "cases": 85,
+    "lat": 18.5324,
+    "lon": 73.8452,
+    "description": "Medium (avoided) due to the presence of crowded commercial areas and bus stops, increasing the risk of catcalling and verbal harassment. Minor thefts are frequent in low-activity alleyways near the main roads."
+  },
+  {
+    "station": "Deccan Gymkhana",
+    "risk": "low",
+    "cases": 30,
+    "lat": 18.5215,
+    "lon": 73.8372,
+    "description": "Low risk. Generally considered safe due to high foot traffic until late hours, well-patrolled streets, and high visibility. Occasional minor incidents only."
+  },
+  {
+    "station": "Hadapsar",
+    "risk": "medium",
+    "cases": 95,
+    "lat": 18.5020,
+    "lon": 73.9212,
+    "description": "Medium (avoided). Safety concerns are heightened in industrial/developing pockets where lighting is poor and foot traffic drops suddenly after business hours, creating isolated stretches with potential for burglaries and suspicious behavior."
+  },
+  {
+    "station": "Yerwada",
+    "risk": "high",
+    "cases": 130,
+    "lat": 18.5521,
+    "lon": 73.8860,
+    "description": "High (avoided) due to the highest concentration of reported incidents and areas near the older jail/industrial zones that are poorly maintained and lacking adequate lighting and police presence after dark, increasing the risk of assault."
+  },
+  {
+    "station": "Aundh",
+    "risk": "low",
+    "cases": 40,
+    "lat": 18.5609,
+    "lon": 73.8123,
+    "description": "Low risk. A residential and commercial hub with active streets, good lighting, and frequent police/private security patrols. Incidents are rare and usually isolated minor thefts."
+  },
+  {
+    "station": "Pimpri",
+    "risk": "high",
+    "cases": 140,
+    "lat": 18.6298,
+    "lon": 73.8009,
+    "description": "High (avoided). Risk is tied to the industrial nature of the area. Safety drops significantly on connector roads between factories/housing where activity levels are very low at night, leaving women isolated and vulnerable to industrial-related theft and occasional violent crime."
+  }
+]

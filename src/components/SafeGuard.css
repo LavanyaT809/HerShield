@@ -1,23 +1,27 @@
 .safeguard-container {
-  padding: 40px;
+  padding: 40px 0; /* No colored padding zone, so only vertical pad */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
   background: linear-gradient(-45deg, #0D0A13, #17111F, #0D0A13, #17111F);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   color: white;
+  max-width: 1300px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1400px) {
+  .safeguard-container {
+    max-width: 1450px;
+    padding: 60px 0;
+  }
 }
 
 @keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .main-title {
@@ -28,21 +32,25 @@
 
 .monitoring-layout {
   display: flex;
-  gap: 30px;
+  gap: 16px;          /* Smaller gap between columns */
   height: calc(100% - 80px);
+  padding: 0 32px;    /* Padding only inside main area, keeps edges clean */
+  box-sizing: border-box;
 }
 
 .left-column {
-  flex: 2;
+  flex: 2.7;         /* Much broader left section for camera */
   display: flex;
   flex-direction: column;
+  min-width: 0;      /* Prevents overflow on small screens */
 }
 
 .right-column {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 24px;
+  min-width: 310px;
 }
 
 .card {
@@ -50,8 +58,11 @@
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 15px;
   padding: 25px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
+/* Live Camera Card is now visually wider */
 .camera-feed {
   flex-grow: 1;
   display: flex;
@@ -65,13 +76,17 @@
   margin-bottom: 10px;
 }
 
-.camera-feed h2, .system-status h2, .immediate-action h2, .ai-settings h2 {
+.camera-feed h2,
+.system-status h2,
+.immediate-action h2,
+.ai-settings h2 {
   margin-top: 0;
   margin-bottom: 0;
   font-size: 1.5em;
 }
 
-.camera-feed p, .immediate-action p {
+.camera-feed p,
+.immediate-action p {
   color: #a9a9a9;
   font-size: 0.9em;
 }
@@ -146,7 +161,8 @@
   background-color: #e04150;
 }
 
-.stop-camera-btn, .request-camera-btn {
+.stop-camera-btn,
+.request-camera-btn {
   background-color: #8a2be2;
   color: white;
   border: none;
@@ -158,7 +174,8 @@
   margin-left: 15px;
 }
 
-.stop-camera-btn:hover, .request-camera-btn:hover {
+.stop-camera-btn:hover,
+.request-camera-btn:hover {
   background-color: #7b24c1;
 }
 

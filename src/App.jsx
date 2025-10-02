@@ -4,10 +4,10 @@ import './App.css';
 import Home from './components/Home';
 import EducatePage from './pages/EducatePage';
 import SafeGuard from './components/SafeGuard';
-import SafeRoute from './components/SafeRoute';
+import SafeRoutePage from './pages/SafeRoutePage'; // Corrected import
 import Analytics from './components/Analytics';
 import Report from './components/Report';
-import Contacts from './components/Contacts'; // Import the Contacts component
+import Contacts from './components/Contacts';
 import { FaShieldAlt } from 'react-icons/fa';
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
               <li><NavLink to="/saferoute">SafeRoute</NavLink></li>
               <li><NavLink to="/educate">Educate</NavLink></li>
               <li><NavLink to="/safeguard">SafeGuard</NavLink></li>
-              <li><NavLink to="/contacts">Contacts</NavLink></li> {/* Add the Contacts link */}
+              <li><NavLink to="/contacts">Contacts</NavLink></li>
             </ul>
           </nav>
         </header>
@@ -34,10 +34,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/educate" element={<EducatePage />} />
           <Route path="/safeguard" element={<SafeGuard />} />
-          <Route path="/saferoute" element={<SafeRoute />} />
+          <Route path="/saferoute" element={<SafeRoutePage />} /> {/* Corrected route */} 
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/report" element={<Report />} />
-          <Route path="/contacts" element={<Contacts />} /> {/* Add the Contacts route */}
+          <Route path="/contacts" element={<Contacts />} />
         </Routes>
       </div>
     </Router>
