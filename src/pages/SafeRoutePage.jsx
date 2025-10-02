@@ -1,11 +1,13 @@
 import React, { useState, useRef } from "react";
 import SafeRoute from "../components/SafeRoute.jsx";
+import SOSScreen from "../components/SOSScreen.jsx";
 import "../styles/SafeRoutePage.css";
 
 const SafeRoutePage = () => {
   const [source, setSource] = useState("");
   const [destination, setDestination] = useState("");
   const [showMap, setShowMap] = useState(false);
+  const [showSOS, setShowSOS] = useState(false);
   const mapContainerRef = useRef(null);
 
   const handleSuggestClick = () => {
@@ -25,11 +27,20 @@ const SafeRoutePage = () => {
     }
   };
 
+  const handleSOSClick = () => {
+    setShowSOS(true);
+  };
+
+  const handleCloseSOS = () => {
+    setShowSOS(false);
+  };
+
   return (
     <div 
       className="safe-route-page-container"
       style={{ backgroundImage: `url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2MYiewMszHp_0_Zxb2z2C4FMbvnSB8bZrQg&s')` }}
     >
+      {showSOS && <SOSScreen onClose={handleCloseSOS} />}
       <div className="route-suggestion-card">
         <h1>Safe Route Suggestion</h1>
         <div className="route-controls">
@@ -64,7 +75,7 @@ const SafeRoutePage = () => {
       )}
 
       <div className="sos-button-container">
-        <button className="sos-button">SOS</button>
+        <button className="sos-button" onClick={handleSOSClick}>SOS</button>
       </div>
     </div>
   );

@@ -1,0 +1,201 @@
+/* Keyframe animation for the gradient background */
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.sos-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    overflow-y: auto;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(45deg, #0D0A13, #17111F);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+.sos-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.sos-header h1 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.map-container, .safe-zones, .trusted-contacts {
+    background: rgba(15, 10, 20, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.map-container {
+    flex-grow: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.street-view {
+    width: 100%;
+    height: 250px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: none;
+}
+
+.location-status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 16px;
+    color: #ccc;
+}
+
+.location-alert {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.location-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.location-actions button {
+    flex-grow: 1;
+    padding: 15px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.location-actions button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.stop-sharing {
+    margin-right: 10px;
+}
+
+.share-location {
+    background: #E53935 !important;
+}
+
+.share-location:hover {
+    background: #F44336 !important;
+}
+
+.safe-zones, .trusted-contacts {
+    flex-shrink: 0;
+}
+
+.safe-zones h2,
+.trusted-contacts h2 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.safe-zones ul,
+.trusted-contacts ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.safe-zones ul::-webkit-scrollbar, 
+.trusted-contacts ul::-webkit-scrollbar {
+  width: 5px;
+}
+
+.safe-zones ul::-webkit-scrollbar-track, 
+.trusted-contacts ul::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.safe-zones ul::-webkit-scrollbar-thumb, 
+.trusted-contacts ul::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.safe-zones ul::-webkit-scrollbar-thumb:hover, 
+.trusted-contacts ul::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.safe-zones li,
+.trusted-contacts li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 5px;
+}
+
+.icon {
+    font-size: 24px;
+    margin-right: 15px;
+    color: #ddd;
+}
+
+.safe-zones li div p,
+.trusted-contacts li div p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.safe-zones li div span,
+.trusted-contacts li div span {
+    font-size: 14px;
+    color: #bbb;
+}

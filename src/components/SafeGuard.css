@@ -1,5 +1,5 @@
 .safeguard-container {
-  padding: 40px 0; /* No colored padding zone, so only vertical pad */
+  padding: 40px 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
   background: linear-gradient(-45deg, #0D0A13, #17111F, #0D0A13, #17111F);
@@ -26,23 +26,25 @@
 
 .main-title {
   text-align: left;
-  font-size: 2.5em;
+  font-size: 2.2em;
   margin-bottom: 30px;
+  padding-left: 32px;
+  padding-top: 20px;
 }
 
 .monitoring-layout {
   display: flex;
-  gap: 16px;          /* Smaller gap between columns */
+  gap: 16px;
   height: calc(100% - 80px);
-  padding: 0 32px;    /* Padding only inside main area, keeps edges clean */
+  padding: 0 32px;
   box-sizing: border-box;
 }
 
 .left-column {
-  flex: 2.7;         /* Much broader left section for camera */
+  flex: 2.7;
   display: flex;
   flex-direction: column;
-  min-width: 0;      /* Prevents overflow on small screens */
+  min-width: 0;
 }
 
 .right-column {
@@ -62,7 +64,6 @@
   box-sizing: border-box;
 }
 
-/* Live Camera Card is now visually wider */
 .camera-feed {
   flex-grow: 1;
   display: flex;
@@ -124,12 +125,24 @@
 }
 
 .status-indicator {
-  width: 50px;
-  height: 50px;
-  background-color: #2ecc71;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   margin: 20px auto;
-  box-shadow: 0 0 15px #2ecc71;
+  position: relative;
+  transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.status-indicator.safe {
+  background: radial-gradient(circle at 30% 30%, #90ee90, #2ecc71);
+  box-shadow: 0 0 8px rgba(46, 204, 113, 0.6), 0 0 12px rgba(46, 204, 113, 0.4), inset 0 0 5px rgba(0,0,0,0.1);
+  animation: pulse-safe 2.5s infinite ease-in-out;
+}
+
+.status-indicator.unsafe {
+  background: radial-gradient(circle at 30% 30%, #ff7b7b, #ff4757);
+  box-shadow: 0 0 10px rgba(255, 71, 87, 0.8), 0 0 15px rgba(255, 71, 87, 0.6), inset 0 0 7px rgba(0,0,0,0.2);
+  animation: pulse-unsafe 1.5s infinite ease-in-out;
 }
 
 .status-text {
@@ -154,6 +167,7 @@
   cursor: pointer;
   width: 100%;
   margin-bottom: 10px;
+  margin-top: 10px;
   transition: background-color 0.3s ease;
 }
 
@@ -174,8 +188,23 @@
   margin-left: 15px;
 }
 
+.toggle-safety-btn {
+  background-color: #8a2be2;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
 .stop-camera-btn:hover,
-.request-camera-btn:hover {
+.request-camera-btn:hover,
+.toggle-safety-btn:hover {
   background-color: #7b24c1;
 }
 
@@ -256,4 +285,26 @@ input:checked + .slider:before {
 
 .detection-log ul li {
   margin-bottom: 8px;
+}
+
+@keyframes pulse-safe {
+  0%, 100% {
+    transform: scale(0.98);
+    box-shadow: 0 0 8px rgba(46, 204, 113, 0.5), 0 0 10px rgba(46, 204, 113, 0.3), inset 0 0 4px rgba(0,0,0,0.1);
+  }
+  50% {
+    transform: scale(1);
+    box-shadow: 0 0 12px rgba(46, 204, 113, 0.7), 0 0 18px rgba(46, 204, 113, 0.5), inset 0 0 6px rgba(0,0,0,0.1);
+  }
+}
+
+@keyframes pulse-unsafe {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(255, 71, 87, 0.7), 0 0 15px rgba(255, 71, 87, 0.5), inset 0 0 6px rgba(0,0,0,0.2);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 0 15px rgba(255, 71, 87, 0.9), 0 0 22px rgba(255, 71, 87, 0.7), inset 0 0 8px rgba(0,0,0,0.2);
+  }
 }
