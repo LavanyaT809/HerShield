@@ -1,5 +1,5 @@
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const SafeRoute = ({ source, destination }) => {
   const mapRef = useRef(null);
@@ -50,6 +50,21 @@ const SafeRoute = ({ source, destination }) => {
       const maxLon = Math.max(aLon, bLon) + padDeg;
       return lat >= minLat && lat <= maxLat && lon >= minLon && lon <= maxLon;
   }
+    
+function isPointInPolygon(point, polygon) {
+    const [lat, lon] = point;
+    let isInside = false;
+    for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+        const [xi, yi] = polygon[i];
+        const [xj, yj] = polygon[j];
+
+        const intersect = ((yi > lat) !== (yj > lat))
+            && (lon < (xj - xi) * (lat - yi) / (yj - yi) + xi);
+        if (intersect) isInside = !isInside;
+    }
+    return isInside;
+}
+
 
   // Effect to initialize the map
   useEffect(() => {
@@ -150,6 +165,10 @@ const SafeRoute = ({ source, destination }) => {
       try {
         const [srcLat, srcLon] = await geocode(source);
         const [dstLat, dstLon] = await geocode(destination);
+
+        if (isNaN(srcLat) || isNaN(srcLon) || isNaN(dstLat) || isNaN(dstLon)) {
+            throw new Error(`Geocoding failed. One or both coordinates are invalid. Src: [${srcLat}, ${srcLon}], Dst: [${dstLat}, ${dstLon}]`);
+        }
         
         const L = window.L;
         const map = mapInstance.current;
@@ -164,18 +183,63 @@ const SafeRoute = ({ source, destination }) => {
         const avoidGeo = buildAvoidGeoFor(srcLat, srcLon, dstLat, dstLon);
 
         try {
-          let data;
+          // 1. Calculate Fastest Route
+          const fastestRoute = await requestRoute(srcLat, srcLon, dstLat, dstLon, null);
+          const fastestRouteDuration = fastestRoute.features[0].properties.summary.duration;
+
+          // 2. Calculate Safest Route
+          let safeRoute;
           if (avoidGeo) {
-            data = await requestRoute(srcLat, srcLon, dstLat, dstLon, avoidGeo);
-            drawRouteGeojson(data, { color: "#3388ff", weight: 5, opacity: 0.8 });
+            safeRoute = await requestRoute(srcLat, srcLon, dstLat, dstLon, avoidGeo);
           } else {
-            data = await requestRoute(srcLat, srcLon, dstLat, dstLon, null);
-            drawRouteGeojson(data, { color: "#3388ff", weight: 5, opacity: 0.8 });
+            safeRoute = fastestRoute; 
           }
+          const safeRouteDuration = safeRoute.features[0].properties.summary.duration;
+          
+          // 3. Compare and generate explainability text
+          const timeDifference = safeRouteDuration - fastestRouteDuration;
+          const fastestRouteCoords = fastestRoute.features[0].geometry.coordinates.map(c => [c[1], c[0]]);
+          
+          let avoidedHighRiskCount = 0;
+          let avoidedMediumRiskCount = 0;
+          let explanationText = "";
+
+          crimeAreas.forEach(area => {
+            const [lat, lon] = getLatLon(area);
+            if (!lat || !lon) return;
+
+            const risk = (area.risk || "").toLowerCase();
+            if(risk !== 'high' && risk !== 'medium') return;
+
+            let base = Number(area.radius) || RADIUS_BY_RISK[risk] || 350;
+            const cap = MAX_RADIUS_CAP[risk] || 600;
+            const radius = clamp(base, 100, cap);
+            
+            const polygon = circleToPolygon(lat, lon, radius);
+            
+            for(const coord of fastestRouteCoords) {
+                if(isPointInPolygon(coord, polygon)) {
+                    if(risk === 'high') avoidedHighRiskCount++;
+                    if(risk === 'medium') avoidedMediumRiskCount++;
+                    break; 
+                }
+            }
+          });
+
+          if (timeDifference > 0) {
+            const timeDiffMinutes = (timeDifference / 60).toFixed(1);
+            explanationText = `This route is ${timeDiffMinutes} minutes longer to avoid ${avoidedHighRiskCount} high-risk and ${avoidedMediumRiskCount} medium-risk areas.`;
+          } else {
+            explanationText = "This is the safest and fastest route, as the risk zones do not intersect the optimal path.";
+          }
+
+          // 4. Draw the route and bind the tooltip
+          drawRouteGeojson(safeRoute, { color: "#3388ff", weight: 5, opacity: 0.8 }, explanationText);
+
         } catch (err) {
           console.warn("Safe route failed, fallback to normal route:", err);
           const fallback = await requestRoute(srcLat, srcLon, dstLat, dstLon, null);
-          drawRouteGeojson(fallback, { color: "#ffc107", weight: 5, dashArray: "10, 10" });
+          drawRouteGeojson(fallback, { color: "#ffc107", weight: 5, dashArray: "10, 10" }, "Safe route calculation failed. This is the fastest route.");
           alert("Safe route calculation failed. Showing a normal route instead.");
         }
       } catch (err) {
@@ -185,7 +249,11 @@ const SafeRoute = ({ source, destination }) => {
   };
 
   const requestRoute = async (srcLat, srcLon, dstLat, dstLon, avoidGeo = null) => {
-      const body = { coordinates: [[srcLon, srcLat], [dstLon, dstLat]] };
+      const body = { 
+        coordinates: [[srcLon, srcLat], [dstLon, dstLat]],
+        instructions: false, 
+        preference: "fastest"
+      };
       if (avoidGeo) body.options = { avoid_polygons: avoidGeo };
 
       const url = "https://api.openrouteservice.org/v2/directions/driving-car/geojson";
@@ -221,11 +289,18 @@ const SafeRoute = ({ source, destination }) => {
       return { type: "MultiPolygon", coordinates: polygons.map((p) => [p]) };
   };
   
-  const drawRouteGeojson = (geojson, style = { color: "blue", weight: 4 }) => {
-      if (routeLayer.current) mapInstance.current.removeLayer(routeLayer.current);
+  const drawRouteGeojson = (geojson, style, explanation) => {
+      if (routeLayer.current) {
+        mapInstance.current.removeLayer(routeLayer.current);
+      }
       const L = window.L;
       const coords = geojson.features[0].geometry.coordinates.map((c) => [c[1], c[0]]);
       routeLayer.current = L.polyline(coords, style).addTo(mapInstance.current);
+
+      if (explanation) {
+        routeLayer.current.bindTooltip(explanation, { sticky: true }).openTooltip();
+      }
+
       mapInstance.current.fitBounds(routeLayer.current.getBounds(), { padding: [40, 40] });
   };
 

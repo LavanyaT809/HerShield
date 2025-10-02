@@ -62,6 +62,10 @@ const SafeRoutePage = () => {
           <SafeRoute source={source} destination={destination} />
         </div>
       )}
+
+      <div className="sos-button-container">
+        <button className="sos-button">SOS</button>
+      </div>
     </div>
   );
 };

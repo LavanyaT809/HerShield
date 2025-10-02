@@ -7,6 +7,7 @@
   align-items: center;
   gap: 2rem;
   padding-top: 5rem;
+  position: relative;
 }
 
 .route-suggestion-card {
@@ -105,4 +106,47 @@
 
 .street-view-btn:hover {
   background-color: #0056b3;
+}
+
+.sos-button-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+}
+
+.sos-button {
+  background-color: #ff4d4d;
+  color: white;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3), inset 0 -4px 0 rgba(0,0,0,0.2);
+  transition: all 0.1s ease-in-out;
+  animation: pulse 2s infinite;
+}
+
+.sos-button:hover {
+  background-color: #ff1a1a;
+}
+
+.sos-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3), inset 0 -2px 0 rgba(0,0,0,0.2);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
