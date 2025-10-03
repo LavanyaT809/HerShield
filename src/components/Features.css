@@ -14,6 +14,7 @@
   padding: 50px 0;
   color: white;
   text-align: center;
+  margin: 0;
 }
 
 .features-header {
@@ -21,7 +22,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 50px;
-  padding: 0 20px; /* Reduced padding */
+  padding: 0;
 }
 
 .features-header p {
@@ -53,7 +54,6 @@
 
 .features-carousel {
   position: relative;
-  width: 90%; /* Use percentage for responsiveness */
   margin: 0 auto;
   overflow: hidden;
 }
@@ -67,10 +67,10 @@
 .feature-card {
   background: rgba(15, 10, 20, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 15px;
+  border-radius: 30px;
+  width: 320px;
+  height: 290px;
   padding: 15px;
-  min-width: 200px;
-  height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -80,6 +80,7 @@
   -webkit-backdrop-filter: blur(10px);
   text-align: center;
   transition: transform 0.3s ease;
+  box-sizing: border-box;
 }
 
 .feature-card:hover {
@@ -100,6 +101,7 @@
   font-size: 0.9em;
   color: #e0e0e0;
   margin-bottom: 12px;
+  padding: 0 8px;
 }
 
 .feature-card button {
@@ -115,4 +117,12 @@
 .feature-card button:hover {
   background-color: white;
   color: #1a1a2e;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .feature-card {
+    width: 140px;
+    height: 140px;
+  }
 }
