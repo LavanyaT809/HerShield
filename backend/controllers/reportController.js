@@ -35,7 +35,7 @@ exports.getReports = async (req, res) => {
 //   try {
 //     const reportData = req.body;
 //     const newReport = new Report(reportData);
-//     await newReport.save();
+//     await newReport.sve();
 //     res.status(201).json({ message: 'Report submitted successfully' });
 //   } catch (error) {
 //     res.status(500).json({ message: 'Server error: ' + error.message });
