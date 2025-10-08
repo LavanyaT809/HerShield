@@ -1,4 +1,4 @@
-# 🛡️ HerShield – Real-Time Women’s Safety & Safe Routing Platform
+# 🛡️  SheShield – Real-Time Women’s Safety & Safe Routing Platform
 
 SheShield is a next-generation women’s safety web platform that combines real-time reporting, analytics, safe navigation, and education — **powered by genuine Pune police crime data (Jan–Oct 2024)**. Designed for both urgent response and day-to-day prevention, this project brings together full-stack engineering, live mapping, and social responsibility.
 
