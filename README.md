@@ -39,12 +39,13 @@ It’s built to *prevent* danger, give real-time situational awareness, and empo
 ## 📸 Screenshots
 
 <p>
-  <img src="public/screenshots/incident_reporting.jpg" width="400"/>
-  <img src="public/screenshots/realtime_dashbaord.jpg" width="400"/>
-  <img src="public/screenshots/source_and_destination.jpg" width="400"/>
-  <img src="public/screenshots/safe_route.jpg" width="400"/>
-  <img src="public/screenshots/sos.jpg" width="400"/>
-  <img src="public/screenshots/educate.jpg" width="400"/>
+  <img src="public/screenshots/home.jpg" width="500"/>
+  <img src="public/screenshots/incident_reporting.jpg" width="500"/>
+  <img src="public/screenshots/realtime_dashbaord.jpg" width="500"/>
+  <img src="public/screenshots/source_and_destination.jpg" width="500"/>
+  <img src="public/screenshots/safe_route.jpg" width="500"/>
+  <img src="public/screenshots/sos.jpg" width="500"/>
+  <img src="public/screenshots/educate.jpg" width="500"/>
 </p>
 
 ---
