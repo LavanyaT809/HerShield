@@ -39,14 +39,14 @@ It’s built to *prevent* danger, give real-time situational awareness, and empo
 ## 📸 Screenshots
 
 <p>
-  <img src="public/screenshots/home.jpg" width="510"/>
-  <img src="public/screenshots/incident_reporting.jpg" width="510"/>
-  <img src="public/screenshots/realtime_dashbaord.jpg" width="510"/>
-  <img src="public/screenshots/source_and_destination.jpg" width="510"/>
-  <img src="public/screenshots/safe_route.jpg" width="510"/>
-  <img src="public/screenshots/sos.jpg" width="510"/>
-  <img src="public/screenshots/sos_livelocation.jpg" width="510"/>
-  <img src="public/screenshots/educate.jpg" width="510"/>
+  <img src="public/screenshots/home.jpg" width="500"/>
+  <img src="public/screenshots/incident_reporting.jpg" width="500"/>
+  <img src="public/screenshots/realtime_dashbaord.jpg" width="500"/>
+  <img src="public/screenshots/source_and_destination.jpg" width="500"/>
+  <img src="public/screenshots/safe_route.jpg" width="500"/>
+  <img src="public/screenshots/sos.jpg" width="500"/>
+  <img src="public/screenshots/sos_livelocation.jpg" width="500"/>
+  <img src="public/screenshots/educate.jpg" width="500"/>
 </p>
 
 ---
@@ -78,7 +78,7 @@ It’s built to *prevent* danger, give real-time situational awareness, and empo
 ---
 
 ## 🛠️ Getting Started
-# 🛠️ Getting Started
+
 
 Follow these steps to run **SheShield** locally. The project includes both frontend (React) and backend (API, alerts).
 
@@ -121,7 +121,7 @@ npm install
 
 # Run the backend server
 npm run start
-
+```
 
 ## 📜 License
 
