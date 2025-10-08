@@ -39,13 +39,14 @@ It’s built to *prevent* danger, give real-time situational awareness, and empo
 ## 📸 Screenshots
 
 <p>
-  <img src="public/screenshots/home.jpg" width="500"/>
-  <img src="public/screenshots/incident_reporting.jpg" width="500"/>
-  <img src="public/screenshots/realtime_dashbaord.jpg" width="500"/>
-  <img src="public/screenshots/source_and_destination.jpg" width="500"/>
-  <img src="public/screenshots/safe_route.jpg" width="500"/>
-  <img src="public/screenshots/sos.jpg" width="500"/>
-  <img src="public/screenshots/educate.jpg" width="500"/>
+  <img src="public/screenshots/home.jpg" width="550"/>
+  <img src="public/screenshots/incident_reporting.jpg" width="550"/>
+  <img src="public/screenshots/realtime_dashbaord.jpg" width="550"/>
+  <img src="public/screenshots/source_and_destination.jpg" width="550"/>
+  <img src="public/screenshots/safe_route.jpg" width="550"/>
+  <img src="public/screenshots/sos.jpg" width="550"/>
+  <img src="public/screenshots/sos_livelocation.jpg" width="550"/>
+  <img src="public/screenshots/educate.jpg" width="550"/>
 </p>
 
 ---
@@ -77,6 +78,45 @@ It’s built to *prevent* danger, give real-time situational awareness, and empo
 ---
 
 ## 🛠️ Getting Started
+**Prerequisites**
+Node.js (v16+)
+
+npm (comes with Node.js)
+
+MongoDB Atlas account (for production, or run MongoDB locally for dev)
+
+OpenRouteService API key (for routing, sign up here)
+
+Twilio account for SMS alerts (sign up here)
+
+Python and Flask if your route-safety backend uses Python
+
+# Clone the repository
+git clone https://github.com/LavanyaT809/she-shield-women-safety-app.git
+cd she-shield-women-safety-app/women_safety_map2
+
+# Install frontend dependencies
+npm install --legacy-peer-deps
+
+# Run the React development server
+npm run dev
+
+cd ../backend
+
+# Install backend dependencies
+npm install
+
+# Set up environment variables (create a .env file based on sample.env or docs)
+# Example .env content:
+# MONGO_URI=your-mongo-connection-string
+# ROUTESERVICE_API_KEY=your-openrouteservice-key
+# TWILIO_SID=your-twilio-sid
+# TWILIO_AUTH_TOKEN=your-twilio-token
+# TWILIO_PHONE=your-twilio-phone
+
+# Run the backend server
+npm run start
+
 
 ## 📜 License
 
