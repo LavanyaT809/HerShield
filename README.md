@@ -39,14 +39,14 @@ It’s built to *prevent* danger, give real-time situational awareness, and empo
 ## 📸 Screenshots
 
 <p>
-  <img src="public/screenshots/home.jpg" width="530"/>
-  <img src="public/screenshots/incident_reporting.jpg" width="530"/>
-  <img src="public/screenshots/realtime_dashbaord.jpg" width="530"/>
-  <img src="public/screenshots/source_and_destination.jpg" width="530"/>
-  <img src="public/screenshots/safe_route.jpg" width="530"/>
-  <img src="public/screenshots/sos.jpg" width="530"/>
-  <img src="public/screenshots/sos_livelocation.jpg" width="530"/>
-  <img src="public/screenshots/educate.jpg" width="530"/>
+  <img src="public/screenshots/home.jpg" width="510"/>
+  <img src="public/screenshots/incident_reporting.jpg" width="510"/>
+  <img src="public/screenshots/realtime_dashbaord.jpg" width="510"/>
+  <img src="public/screenshots/source_and_destination.jpg" width="510"/>
+  <img src="public/screenshots/safe_route.jpg" width="510"/>
+  <img src="public/screenshots/sos.jpg" width="510"/>
+  <img src="public/screenshots/sos_livelocation.jpg" width="510"/>
+  <img src="public/screenshots/educate.jpg" width="510"/>
 </p>
 
 ---
@@ -78,19 +78,24 @@ It’s built to *prevent* danger, give real-time situational awareness, and empo
 ---
 
 ## 🛠️ Getting Started
-**Prerequisites**
-Node.js (v16+)
+# 🛠️ Getting Started
 
-npm (comes with Node.js)
+Follow these steps to run **SheShield** locally. The project includes both frontend (React) and backend (API, alerts).
 
-MongoDB Atlas account (for production, or run MongoDB locally for dev)
+## Prerequisites
 
-OpenRouteService API key (for routing, sign up here)
+- Node.js (v16+)
+- npm (comes with Node.js)
+- MongoDB Atlas account (for production, or run MongoDB locally for dev)
+- OpenRouteService API key (for routing, [sign up here](https://openrouteservice.org/))
+- Twilio account for SMS alerts ([sign up here](https://www.twilio.com/))
+- Python and Flask if your route-safety backend uses Python
 
-Twilio account for SMS alerts (sign up here)
+---
 
-Python and Flask if your route-safety backend uses Python
+## Frontend Setup
 
+```bash
 # Clone the repository
 git clone https://github.com/LavanyaT809/she-shield-women-safety-app.git
 cd she-shield-women-safety-app/women_safety_map2
@@ -117,8 +122,6 @@ npm install
 # Run the backend server
 npm run start
 
-
-## 📜 License
 
 ## 📜 License
 
